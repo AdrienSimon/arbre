@@ -1,0 +1,43 @@
+# -*- coding:Utf-8 -*-
+
+
+class Noeud:
+	def __init__(self, valeur):
+		self.gauche = None
+		self.droite = None
+		self.valeur = valeur
+class Arbre:
+	def __init___(self):
+		self.racine = None
+	def getRacine(self):
+		return self.racine
+	def ajouter_valeur(self, valeur):
+	
+		if (self.racine == None):
+			self.racine = Noeud(valeur)
+		else:
+			self._ajouter_valeur(valeur, self.racine)
+			
+	def _ajouter_valeur(self, valeur, noeud):
+		if (valeur <= noeud.valeur):
+			if(noeud.gauche != None):
+				self._ajouter_valeur(val, noeud.gauche)
+			else:
+				Noeud.gauche = Noeud(valeur)
+		else:
+			if(noeud.droite != None):
+				self._ajouter_valeur(val, noeud.droite)
+			else:
+				Noeud.droite = Noeud(valeur)
+	def print_arbre(self):
+		if(self.racine != None):
+			self._print_arbre(self.racine)
+	
+	def _print_arbre(self, noeud):
+		if(noeud != None):
+			self.print_arbre(noeud.gauche)
+			print str(noeud.valeur) + ' '
+			self.print_arbre(noeud.droite)
+
+arbretest = Noeud(5)
+arbretest.ajouter_valeur(3)
